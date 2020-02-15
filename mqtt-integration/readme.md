@@ -8,14 +8,15 @@ I'm using Home Assistant as a Home Automation Server
 
 ### Environment
 
-- Home Assistant 0.103.6 (python installation / no hassio)
-- Mosquitto MQTT 1.5.7
+- Home Assistant 0.103.6 (python installation / no hassio) on Raspberry Pi 4
+- Mosquitto MQTT 1.5.7 on Raspberry Pi 4
 - Tasmota 8.1.0.2 installed in Zeoota Power Strip ZLD-44EU-W, with tuya-convert
 
 
 ## Mosquitto
 
 We need an MQTT Broker to communicate TASMOTA devices with Home Assistant.
+I'm using a Raspberry Pi 4 (with Raspian Buster) as a server for Home Assistant and Mosquitto.
 
 Installation
 
@@ -61,13 +62,16 @@ TODO:
 
 To bypass TUYA Servers, we need a custom firmware in our devices. There are different methods to overwrite firmware in ESP8266 based devices, some of them require a physical connection (soldering wires), but tuya-convert can use a security bug in some tuya versions to allow a wireless upgrading.
 
+I tried to use this process in my Raspberry Pi 4 without success, may be the installed software (DeConz, HA, ...) could interfere with the process.
+
 Using:
 - Raspberry Pi 3
-- [Raspian Buster Lite](https://www.raspberrypi.org/downloads/raspbian/)  
+- [Raspian Buster Lite](https://www.raspberrypi.org/downloads/raspbian/)
 - [tuya-convert](https://github.com/ct-Open-Source/tuya-convert)
-- Android Phone (Sansung s8+)
+- Android Phone to connect to tuya-convert (any other devide must work)
 
 Connect to Raspberry Pi by LAN, because Wifi will be used to enable a hotspot.
+Use a raspain clear SD image.
 
 ### Install tuya convert
 
@@ -87,9 +91,11 @@ The installation process will make a firmware backup
 
 Access with a web browser to IP device (check on your wifi router)
 
-Set Wifi configuration
+#### Set Wifi configuration
 
-Set MQTT configuration
+Information to access your wifi.
+
+#### Set MQTT configuration
 
 Use user/pass created in MQTT configuration
 
@@ -100,7 +106,7 @@ Use user/pass created in MQTT configuration
 - Topic: zeoota
 - Full Topic: homeassistant/switch/%topic%/%prefix%
     
-Set Template
+#### Set Template
 
 Template was submitted to tasmota as [ZEOOTA-ZLD-44E](https://templates.blakadder.com/zeeota_ZLD-33EU-W.html).
 If it's not present in tuya-convert, use these values
