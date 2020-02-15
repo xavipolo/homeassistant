@@ -94,24 +94,33 @@ Access with a web browser to IP device (check on your wifi router)
 #### Set Wifi configuration
 
 Information to access your wifi.
-
-#### Set MQTT configuration
-
-Use user/pass created in MQTT configuration
-
-- Host: <your MQTT broker>
-- Port: 1883 (by default)    
-- User: zeoota_user
-- Password: ffYf5hOv
-- Topic: zeoota
-- Full Topic: homeassistant/switch/%topic%/%prefix%
-    
+  
 #### Set Template
 
 Template was submitted to tasmota as [ZEOOTA-ZLD-44E](https://templates.blakadder.com/zeeota_ZLD-33EU-W.html).
 If it's not present in tuya-convert, use these values
 
 ![Zeoota Power Strip ZLD-44EU-W Template](https://github.com/xavipolo/homeassistant/blob/master/mqtt-integration/zeoota-template.png)
+
+After set template, check device control (and leds):
+- 1 to 4 control switches
+- 5 control usb ports.
+
+![Zeoota Web Control](https://github.com/xavipolo/homeassistant/blob/master/mqtt-integration/zeoota.web-control.png)
+
+
+#### Set MQTT configuration
+
+Connect device with MQTT Broker
+
+Use user/pass created in MQTT configuration
+
+- Host: IP or HOSTNAME of your MQTT broker
+- Port: 1883 (by default)
+- User: zeoota_user
+- Password: ffYf5hOv
+- Topic: zeoota
+- Full Topic: homeassistant/switch/%topic%/%prefix%
 
 
 ## Home Assistant Configuration
