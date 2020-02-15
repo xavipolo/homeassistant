@@ -15,7 +15,7 @@ I'm using Home Assistant as a Home Automation Server
 
 ## Mosquitto
 
-We need a MQTT Broker to comunicate TASMOTA devices with Home Assistant.
+We need an MQTT Broker to communicate TASMOTA devices with Home Assistant.
 
 Installation
 
@@ -53,14 +53,13 @@ Access to logs
 
     sudo tail -f /var/log/mosquitto/mosquitto.log
     
-To Do:
+TODO:
 - Add TSL Certificates
 
 
 ## Tasmota
 
-To bypass TUYA Servers, we need a custom firmware in our devices.
-There are different methods to overwrite firmware in ESP8266 based devices, some of them requiries a physical connection (soldering wires), but tuya-convert can use a security bug in some tuya versions to allow a wireless upgrading.
+To bypass TUYA Servers, we need a custom firmware in our devices. There are different methods to overwrite firmware in ESP8266 based devices, some of them require a physical connection (soldering wires), but tuya-convert can use a security bug in some tuya versions to allow a wireless upgrading.
 
 Using:
 - Raspberry Pi 3
@@ -68,7 +67,7 @@ Using:
 - [tuya-convert](https://github.com/ct-Open-Source/tuya-convert)
 - Android Phone (Sansung s8+)
 
-Connect to rPi by LAN, because Wifi will be used to enable a hotspot
+Connect to Raspberry Pi by LAN, because Wifi will be used to enable a hotspot.
 
 ### Install tuya convert
 
@@ -80,9 +79,9 @@ Start process
 
      ./start_flash.sh
      
-Follow on screen instructions
+Follow on-screen instructions
 
-Installation will make a firmware backup
+The installation process will make a firmware backup
 
 ### Tuya cofiguration
 
@@ -103,7 +102,8 @@ Use user/pass created in MQTT configuration
     
 Set Template
 
-Template was submitted to tasmota as [ZEOOTA-ZLD-44E](https://templates.blakadder.com/zeeota_ZLD-33EU-W.html)
+Template was submitted to tasmota as [ZEOOTA-ZLD-44E](https://templates.blakadder.com/zeeota_ZLD-33EU-W.html).
+If it's not present in tuya-convert, use these values
 
 ![Zeoota Power Strip ZLD-44EU-W Template](https://github.com/xavipolo/homeassistant/blob/master/mqtt-integration/zeoota-template.png)
 
@@ -112,6 +112,7 @@ Template was submitted to tasmota as [ZEOOTA-ZLD-44E](https://templates.blakadde
 
 configuration.yaml
 
+TODO: working
 
 
 
