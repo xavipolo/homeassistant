@@ -1,15 +1,23 @@
 # Tasmota & Home Assistant
 
+### Scenario
+
+I want to use "Zeoota Power Strip ZLD-44EU-W" and other Tuya based gadgets without using TUYA Servers
+
+I'm using Home Assistant as a Home Automation Server
+
 ### Environment
 
-- Home Assistant 0.103.6 (python isntallation)
+- Home Assistant 0.103.6 (python installation / no hassio)
 - Mosquitto MQTT 1.5.7
 - Tasmota 8.1.0.2 installed in Zeoota Power Strip ZLD-44EU-W, with tuya-convert
 
 
 ## Mosquitto
 
-Install
+We need a MQTT Broker to comunicate TASMOTA devices with Home Assistant.
+
+Installation
 
     sudo apt install -y mosquitto mosquitto-clients
     sudo systemctl enable mosquitto.service
@@ -45,8 +53,14 @@ Access to logs
 
     sudo tail -f /var/log/mosquitto/mosquitto.log
     
+To Do:
+- Add TSL Certificates
+
 
 ## Tasmota
+
+To bypass TUYA Servers, we need a custom firmware in our devices.
+There are different methods to overwrite firmware in ESP8266 based devices, some of them requiries a physical connection (soldering wires), but tuya-convert can use a security bug in some tuya versions to allow a wireless upgrading.
 
 Using:
 - Raspberry Pi 3
@@ -89,6 +103,9 @@ Use user/pass created in MQTT configuration
     
 Set Template
 
+Template was submitted to tasmota as [ZEOOTA-ZLD-44E](https://templates.blakadder.com/zeeota_ZLD-33EU-W.html)
+
+![Zeoota Power Strip ZLD-44EU-W Template](https://github.com/xavipolo/homeassistant/blob/master/mqtt-integration/zeoota-template.png)
 
 
 ## Home Assistant Configuration
